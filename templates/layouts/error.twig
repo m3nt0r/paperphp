@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-{% block head %}
+    {% block head %}
     <meta http-equiv="Content-Type" content="text/html; charset={{ charset }}" />
-    <title>Error: {% block title %}{% endblock %}</title>
-{% endblock %}
+    <title>{{ website.name }} {% block title %}{% endblock %}</title>
+    {% endblock %}
+    <link href="/css/paperphp.css" rel="stylesheet" media="all">
 </head>
 <body class="error">
 <div id="content">
-    {% block content %}An unknown error occured.{% endblock %}
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="/js/vendor.js"></script>
+    <script src="/js/paperphp.js"></script>
 </div>
 </body>
 </html>
