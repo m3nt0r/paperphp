@@ -49,6 +49,7 @@ This should give you enough control about the presentation. The rest is up to th
 ## Setup
 
 This package uses composer. To learn how to install composer [check here](https://getcomposer.org/doc/00-intro.md#system-requirements).
+Now type the following command:
 
     composer install
     
@@ -56,14 +57,19 @@ Once the process is complete, upload everything to your webserver of choice. It 
 at least PHP 5.5. If you see the default welcome page, the _installation_ is complete and you 
 can begin creating your Markdown pages.
 
-I plan on creating full distributions at a later point, which makes the "composer" routine obsolete. 
+I plan on creating full distributions at a later point, which makes the "composer" routine obsolete.
 
 ## Hosting
 
 On Apache you should have zero issues. However, i recommend pointing the VirtualHost to the
 `public/` directory, for security reasons. PaperPHP will run with or without it. Your choice.
 
-The entire system currently relies on Apache mod_rewrite, so make sure you have it enabled.
+### Troubleshooting
+
+- The entire system currently relies on Apache mod_rewrite, so make sure you have it enabled.
+- If you don't see anything, check if `cache` is writable. Also, check your server logs.
+- If you still don't get something, check if you installed/uploaded the required composer packages. 
+- If you get redirect issues, try commenting out the RewriteBase statement in the `public/.htaccess`
 
 ## License
 
