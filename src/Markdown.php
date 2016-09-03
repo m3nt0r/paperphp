@@ -32,6 +32,7 @@ class Markdown
         $markdownString = file_get_contents($filepath);
 
         $parser = new Parser('yaml', 'markdown');
+        $parser->addParser(new \PaperPHP\Paper\Parser\Markdown);
         $result = $parser->parse($markdownString);
 
         $document = $result->head;
