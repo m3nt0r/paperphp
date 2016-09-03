@@ -1,0 +1,9 @@
+{% extends "layouts/default.twig" %}
+
+{% block title %}- {{ document.title }}{% endblock %}
+
+{% block content %}
+<article class="markdown">
+    {{ content|raw }}
+</article>
+{% endblock %}

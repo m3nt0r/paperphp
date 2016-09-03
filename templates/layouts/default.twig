@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% block head %}
+    <meta http-equiv="Content-Type" content="text/html; charset={{ charset }}" />
+    <title>{{ website.name }} {% block title %}{% endblock %}</title>
+    <meta name="robots" content="index, follow, all" />
+    <meta name="author" content="{{ website.author }}" />
+{% endblock %}
+</head>
+<body>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

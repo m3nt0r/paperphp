@@ -1,0 +1,16 @@
+{
+  "name": "paperphp-frontend",
+  "version": "1.0.0",
+  "description": "Styles and scripts for PaperPHP default frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "paperphp",
+    "js",
+    "css"
+  ],
+  "author": "Kjell Bublitz <kjbbtz@gmail.com>",
+  "license": "MIT"
+}

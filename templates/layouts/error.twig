@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% block head %}
+<meta http-equiv="Content-Type" content="text/html; charset={{ charset }}" />
+<title>Error {% block title %}{% endblock %}</title>
+{% endblock %}
+</head>
+<body>
+<div id="content">
+    {% block content %}An unknown error occured.{% endblock %}
+</div>
+</body>
+</html>

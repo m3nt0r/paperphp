@@ -1,0 +1,17 @@
+{
+  "markdown": {
+    "extension": ".md",
+    "directory": "/pages"
+  },
+  "templates": {
+    "default": "document",
+    "directory": "/templates",
+    "cache": "/cache",
+    "debug": false,
+    "charset": "utf-8"
+  },
+  "website": {
+    "name": "My Website",
+    "author": ""
+  }
+}

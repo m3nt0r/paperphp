@@ -1,0 +1,11 @@
+{% extends "layouts/error.twig" %}
+
+{% block title %}{{ errorCode }}{% endblock %}
+
+{% block content %}
+
+    <h2>Exception was raised</h2>
+    <p>{{ errorMessage }}</p>
+    <p><small class="text-muted">Code {{ errorCode }} // Line {{ errorLine }} // Document: {{ documentPath }}</small></p>
+
+{% endblock %}

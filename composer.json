@@ -1,0 +1,28 @@
+{
+  "name": "paperphp/paperphp",
+  "description": "A minimalistic PHP web publishing platform working with markdown documents.",
+  "repository": "https://github.com/paperphp/paperphp.git",
+  "keywords": [
+    "microframework",
+    "markdown",
+    "publishing",
+    "homepage",
+    "blog"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kjell Bublitz",
+      "email": "kjbbtz@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "erusev/parsedown": "^1.6",
+    "erusev/parsedown-extra": "^0.7.1",
+    "twig/twig": "^1.24",
+    "symfony/yaml": "^3.1",
+    "seld/jsonlint": "^1.4",
+    "devster/frontmatter": "^1.0@dev"
+  }
+}

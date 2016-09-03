@@ -1,0 +1,8 @@
+.DS_Store
+config.json
+vendor/
+node_modules/
+cache/*
+pages/*
+!pages/index.md
+!.gitkeep
