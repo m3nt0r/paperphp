@@ -16,6 +16,9 @@
       "email": "kjbbtz@gmail.com"
     }
   ],
+  "autoload": {
+    "psr-4": { "PaperPHP\\Paper\\": "src/" }
+  },
   "require": {
     "php": ">=5.5.0",
     "erusev/parsedown": "^1.6",

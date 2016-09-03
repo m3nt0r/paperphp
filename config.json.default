@@ -7,8 +7,11 @@
     "default": "document",
     "directory": "/templates",
     "cache": "/cache",
-    "debug": false,
-    "charset": "utf-8"
+    "debug": true,
+    "charset": "utf-8",
+    "header": {
+      "example": "default parameter"
+    }
   },
   "website": {
     "name": "My Website",
