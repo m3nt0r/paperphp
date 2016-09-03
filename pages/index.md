@@ -15,6 +15,8 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto doloribus e
 
 Commodi delectus dicta error hic _illum impedit itaque_ labore laboriosam molestias optio repellat, unde!
 
+![example image](https://unsplash.it/1280/720/?random)
+
 Etepellat, unde! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto doloribus eius exercitationem quia tempora voluptate! Commodi delectus dicta error ex hic illum impedit itaque labore laboriosam molestias optio repellat, unde!
 
      This should be a pre
