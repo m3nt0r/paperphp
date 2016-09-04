@@ -16,9 +16,10 @@ namespace PaperPHP\Paper\Parser;
  *
  * Added shortcuts:
  *
- *  "+"    Adding a plus-sign in front of a youtube link will create an iframe embed.
- *         Example: +http://youtube..
+ *  "%[]"  Adding a percent-sign in front of a youtube link, wrapped in brackets,
+ *         will convert it to an iframe embed.
  *
+ *         Example: %[ http://youtube.. ]
  *
  *
  * @author Kjell Bublitz <kjbbtz@gmail.com>
