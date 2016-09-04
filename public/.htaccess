@@ -1,18 +1,17 @@
 <IfModule mod_rewrite.c>
+
     RewriteEngine On
 
     # Some hosts may require you to use the `RewriteBase` directive.
     RewriteBase /
 
-    # Redirect Trailing Slashes If Not A Folder...
+    # Redirect trailing slashes unless directory
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-    # Handle Front Controller...
+    # Rewrite requests to Document parameter...
+    RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 
-    # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>

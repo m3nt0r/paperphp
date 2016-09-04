@@ -34,12 +34,10 @@ class Document
      *
      * Parse URI and translate to relative path.
      *
-     * @param $uri
+     * @param $path
      */
-    public function __construct($uri)
+    public function __construct($path)
     {
-        $url = parse_url($uri);
-
         // show fancy exceptions
         set_exception_handler(array(&$this, 'handleException'));
 
@@ -54,7 +52,7 @@ class Document
         }
 
         // build partial path
-        $requestPath = rtrim($url['path'], '/');
+        $requestPath = rtrim($path, '/');
         $documentPath = $markdownPath . $requestPath;
 
         // assume "index" file if path translates to a directory
@@ -64,6 +62,13 @@ class Document
 
         // full path to markdown file or false
         $this->filepath = realpath(PAPERPHP_ROOT . $documentPath . $markdownExt);
+
+        if (!$this->filepath) {
+            var_dump($requestPath);
+            var_dump($markdownPath);
+            var_dump($documentPath);
+            var_dump($documentPath . $markdownExt);
+        }
 
         // request information for file processing (and perhaps templates)
         $this->request = [
