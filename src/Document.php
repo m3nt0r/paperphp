@@ -21,9 +21,13 @@ use Devster\Frontmatter\Exception\Exception;
 
 class Document
 {
-    private $response;
-    private $request;
-    private $filepath;
+    private $request = [];
+    private $response = [];
+
+    /**
+     * @var bool|string
+     */
+    private $filepath = false;
 
     /**
      * Document constructor.
@@ -34,25 +38,40 @@ class Document
      */
     public function __construct($uri)
     {
-        set_exception_handler(array(&$this, 'handleException'));
-
         $url = parse_url($uri);
 
+        // show fancy exceptions
+        set_exception_handler(array(&$this, 'handleException'));
+
+        // get markdown options
+        $markdownPath = Config::get('markdown.directory');
+        $markdownExt = Config::get('markdown.extension');
+
+        // check if we should show "welcome" pages
+        if (!realpath(PAPERPHP_ROOT . $markdownPath . '/index' . $markdownExt)) {
+            $markdownPath = '/frontend/md';
+            $markdownExt = '.md';
+        }
+
+        // build partial path
         $requestPath = rtrim($url['path'], '/');
-        $documentPath = Config::get('markdown.directory') . $requestPath;
+        $documentPath = $markdownPath . $requestPath;
 
         // assume "index" file if path translates to a directory
         if (is_dir(realpath(PAPERPHP_ROOT . $documentPath))) {
             $documentPath .= '/index';
         }
 
-        $this->filepath = realpath(PAPERPHP_ROOT . $documentPath . Config::get('markdown.extension'));
+        // full path to markdown file or false
+        $this->filepath = realpath(PAPERPHP_ROOT . $documentPath . $markdownExt);
 
+        // request information for file processing (and perhaps templates)
         $this->request = [
             'path' => $requestPath ? $requestPath : '/',
-            'document' => $documentPath . Config::get('markdown.extension')
+            'document' => $documentPath . $markdownExt
         ];
 
+        // start response array for templates
         $this->response = [
             'charset' => Config::get('templates.charset'),
             'website' => Config::get('website'),
