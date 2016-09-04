@@ -46,8 +46,8 @@ class Document
         $markdownPath = Config::get('markdown.directory');
         $markdownExt = Config::get('markdown.extension');
 
-        // check if we should show "welcome" pages
-        if (!realpath(PAPERPHP_ROOT . $markdownPath . '/index' . $markdownExt)) {
+        if (Paper::noIndexFile()) {
+            // show "welcome" pages
             $markdownPath = '/frontend/md';
             $markdownExt = '.md';
         }
