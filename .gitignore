@@ -4,6 +4,4 @@ vendor/
 node_modules/
 cache/*
 pages/*
-!pages/index.md
-!pages/examples
 !.gitkeep
