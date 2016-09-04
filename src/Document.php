@@ -23,6 +23,7 @@ class Document
 {
     private $request = [];
     private $response = [];
+    private $template = '';
 
     /**
      * @var bool|string
@@ -63,13 +64,6 @@ class Document
         // full path to markdown file or false
         $this->filepath = realpath(PAPERPHP_ROOT . $documentPath . $markdownExt);
 
-        if (!$this->filepath) {
-            var_dump($requestPath);
-            var_dump($markdownPath);
-            var_dump($documentPath);
-            var_dump($documentPath . $markdownExt);
-        }
-
         // request information for file processing (and perhaps templates)
         $this->request = [
             'path' => $requestPath ? $requestPath : '/',
@@ -78,8 +72,10 @@ class Document
 
         // start response array for templates
         $this->response = [
-            'charset' => Config::get('templates.charset'),
+            'lang' => Config::get('website.language'),
+            'charset' => Config::get('website.charset'),
             'website' => Config::get('website'),
+            'rssfeed' => Paper::getBaseUrl() . '/rss.php',
             'request' => $this->request
         ];
     }
@@ -101,8 +97,8 @@ class Document
         $document = $result['document'];
         $content = $result['content'];
 
-        $template = isset($document['template']) ? $document['template'] : Config::get('templates.default');
-        $this->response = array_merge($this->response, compact('template', 'document', 'content'));
+        $this->template = $template = isset($document['template']) ? $document['template'] : Config::get('templates.default');
+        $this->response = array_merge($this->response, compact('document', 'content', 'template'));
 
         return true;
     }
@@ -114,9 +110,17 @@ class Document
      */
     public function render()
     {
-        $template = $this->getResponse('template');
+        return Template::render($this->template, $this->response);
+    }
 
-        return Template::render($template, $this->response);
+    /**
+     * Render Not-Found template
+     *
+     * return string HTML
+     */
+    public function notfound()
+    {
+        return Template::render('notfound', $this->response);
     }
 
     /**
@@ -172,5 +176,13 @@ class Document
             return $this->response[$key];
         }
         return $this->response;
+    }
+
+    /**
+     * @return string Name of the template to use
+     */
+    public function getTemplate()
+    {
+        return $this->template;
     }
 }
