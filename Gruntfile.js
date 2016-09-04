@@ -56,6 +56,35 @@ module.exports = function(grunt) {
         files: ['frontend/less/**/*.less'],
         tasks: ['less']
       }
+    },
+
+    clean: {
+      dist: ['release/*', 'cache/*/'],
+      cache: ['cache/*/'],
+    },
+
+    compress: {
+      dist: {
+        options: {
+          archive: 'release/<%= pkg.name %>.zip'
+        },
+        files: [
+          {src: [
+            'cache',
+            'frontend/**',
+            'pages/**',
+            'public/.htaccess',
+            'public/**',
+            'src/**',
+            'templates/**',
+            'vendor/**',
+            '.htaccess',
+            'config.json.default',
+            'package.json',
+            'README.md'
+          ], dest: ''},
+        ]
+      }
     }
 
   });
@@ -63,8 +92,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-browserify');
 
+  grunt.registerTask('cache', ['clean:cache']);
+  grunt.registerTask('dist', ['clean:dist', 'compress:dist']);
   grunt.registerTask('build', ['concat', 'less', 'browserify']);
   grunt.registerTask('default', ['watch']);
 
