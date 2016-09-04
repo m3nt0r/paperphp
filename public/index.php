@@ -29,14 +29,13 @@ if (isset($_GET['url']) && in_array($_GET['url'], ['robots.txt', 'favicon.ico'])
 require PAPERPHP_ROOT . '/vendor/autoload.php';
 
 $document = new \PaperPHP\Paper\Document($path);
-
 if ($document->parse())
 {
     echo $document->render();
 }
 else
 {
-    echo \PaperPHP\Paper\Template::render('notfound', $document->getResponse());
+    echo $document->notfound();
 }
 
 exit;
