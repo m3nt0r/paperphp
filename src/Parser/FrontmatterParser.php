@@ -9,6 +9,7 @@
  */
 namespace PaperPHP\Paper\Parser;
 use Symfony\Component\Yaml\Yaml;
+use PaperPHP\Paper\Config;
 
 /**
  * PaperPHP Markdown Parser
