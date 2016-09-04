@@ -59,17 +59,29 @@ can begin creating your Markdown pages.
 
 I plan on creating full distributions at a later point, which makes the "composer" routine obsolete.
 
+## Configuration
+
+Copy the `config.json.default` to `config.json` and modify it to your liking. 
+
 ## Hosting
 
 On Apache you should have zero issues. However, i recommend pointing the VirtualHost to the
 `public/` directory, for security reasons. PaperPHP will run with or without it. Your choice.
 
+### URL rewriting
+
+The .htaccess tries to use mod_rewrite if enabled. If you can't enable it, you can use the `?url=` 
+parameter to call documents. For example:
+
+    index.php?url=stuff/about-me 
+    index.php?url=/stuff/about-me 
+
 ### Troubleshooting
 
-- The entire system currently relies on Apache mod_rewrite, so make sure you have it enabled.
 - If you don't see anything, check if `cache` is writable. Also, check your server logs.
-- If you still don't get something, check if you installed/uploaded the required composer packages. 
-- If you get redirect issues, try commenting out the RewriteBase statement in the `public/.htaccess`
+- If you still don't get something, check if you installed/uploaded the required _composer_ packages. 
+- If you get redirect issues (error 500), try commenting out the RewriteBase statement in the `public/.htaccess`
+
 
 ## License
 
