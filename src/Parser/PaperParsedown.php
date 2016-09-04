@@ -34,8 +34,7 @@ class PaperParsedown extends \ParsedownExtra
     {
         parent::__construct();
 
-        $this->BlockTypes['+'] = array('YouTubeFrame');
-        $this->unmarkedBlockTypes[]= 'YouTubeFrame';
+        $this->BlockTypes['%'] = array('YouTubeFrame');
     }
 
     /**
@@ -49,16 +48,19 @@ class PaperParsedown extends \ParsedownExtra
      */
     protected function blockYouTubeFrame($line)
     {
-        if ( ! isset($line['text'][1]) or $line['text'][0] !== '+')
+        if (!isset($line['text'][1]) || $line['text'][0] !== '%' || $line['text'][1] !== '[')
         {
             return;
         }
 
-        $youtubeUrl = substr($line['text'], 1);
+        $withoutPrefix = substr($line['text'], 1);
+        $withoutBrackets = trim($withoutPrefix, '[]');
+
+        $href = trim( $withoutBrackets ); // whitespace between brackets is allowed
 
         // detect youtube ID
         $matches = [];
-        preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $youtubeUrl, $matches);
+        preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $href, $matches);
 
         if (empty($matches))
         {
@@ -73,7 +75,8 @@ class PaperParsedown extends \ParsedownExtra
                 'name' => 'div',
                 'handler' => 'element',
                 'attributes' => array(
-                    'class' => 'video-embed'
+                    'class' => 'video-embed',
+                    'data-href' => $href,
                 ),
                 'text' => array(
                     'name' => 'iframe',
@@ -81,7 +84,6 @@ class PaperParsedown extends \ParsedownExtra
                     'attributes' => array(
                         'src' => $iframeSrc,
                         'class' => 'video video-youtube',
-                        'data-original' => $youtubeUrl,
                         'frameborder' => '0',
                         'width' => '100%',
                         'allowfullscreen' => ''
