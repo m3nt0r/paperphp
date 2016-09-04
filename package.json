@@ -1,6 +1,6 @@
 {
   "name": "paperphp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Styles and scripts for PaperPHP default frontend",
   "main": "index.js",
   "scripts": {
