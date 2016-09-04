@@ -7,7 +7,7 @@
  * @license MIT
  * @package paperphp
  */
-namespace PaperPHP\Paper;
+namespace PaperPHP\Paper\Parser;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -19,7 +19,7 @@ use Symfony\Component\Yaml\Yaml;
  * @package paperphp
  */
 
-class Parser extends \Devster\Frontmatter\Parser
+class FrontmatterParser extends \Devster\Frontmatter\Parser
 {
     public function parseFrontmatter($content)
     {

@@ -8,6 +8,7 @@
  * @package paperphp
  */
 namespace PaperPHP\Paper;
+use PaperPHP\Paper\Parser\FrontmatterParser;
 
 /**
  * PaperPHP Markdown Parser
@@ -31,7 +32,7 @@ class Markdown
     {
         $markdownString = file_get_contents($filepath);
 
-        $parser = new Parser('yaml', 'markdown');
+        $parser = new FrontmatterParser('yaml', 'markdown');
         $parser->addParser(new \PaperPHP\Paper\Parser\Markdown);
         $result = $parser->parse($markdownString);
 
