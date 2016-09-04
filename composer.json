@@ -1,6 +1,6 @@
 {
   "name": "paperphp/paperphp",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "time": "2016-09-04",
   "description": "A minimalistic PHP web publishing platform working with markdown documents.",
   "homepage": "https://github.com/paperphp",
