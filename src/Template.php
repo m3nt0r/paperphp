@@ -33,7 +33,7 @@ class Template
     {
         $loader = new \Twig_Loader_Filesystem(PAPERPHP_ROOT . Config::get('templates.directory'));
         self::$twig = new \Twig_Environment($loader, [
-            'charset' => Config::get('templates.charset'),
+            'charset' => Config::get('website.charset'),
             'auto_reload' => Config::get('templates.debug'),
             'debug' => Config::get('templates.debug'),
             'cache' => PAPERPHP_ROOT . Config::get('templates.cache')

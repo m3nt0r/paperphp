@@ -8,13 +8,20 @@
     "directory": "/templates",
     "cache": "/cache",
     "debug": true,
-    "charset": "utf-8",
     "header": {
       "example": "default parameter"
     }
   },
   "website": {
     "name": "My Website",
+    "language": "en-US",
+    "charset": "utf-8",
+    "description": "",
     "author": ""
+  },
+  "rss": {
+    "sortby": "modified",
+    "truncate": 300,
+    "limit": 10
   }
 }

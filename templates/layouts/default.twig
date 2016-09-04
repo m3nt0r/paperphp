@@ -3,9 +3,10 @@
 <head>
     {% block head %}
     <meta http-equiv="Content-Type" content="text/html; charset={{ charset }}" />
-    <title>{{ website.name }} {% block title %}{% endblock %}</title>
+    <title>{{ website.name }}{% block title %}{% endblock %}</title>
     <meta name="robots" content="index, follow, all" />
     <meta name="author" content="{{ website.author }}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ website.name }} RSS Feed" href="{{ rssfeed }}" />
     {% endblock %}
     <link href="/css/paperphp.css" rel="stylesheet" media="all">
 </head>
