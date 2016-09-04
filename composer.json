@@ -1,10 +1,14 @@
 {
   "name": "paperphp/paperphp",
   "version": "1.1.0",
+  "time": "2016-09-04",
   "description": "A minimalistic PHP web publishing platform working with markdown documents.",
+  "homepage": "https://github.com/paperphp",
   "repository": "https://github.com/paperphp/paperphp.git",
+  "type": "project",
   "keywords": [
     "microframework",
+    "templating",
     "markdown",
     "publishing",
     "homepage",
@@ -14,7 +18,8 @@
   "authors": [
     {
       "name": "Kjell Bublitz",
-      "email": "kjbbtz@gmail.com"
+      "email": "kjbbtz@gmail.com",
+      "role": "Developer"
     }
   ],
   "autoload": {
