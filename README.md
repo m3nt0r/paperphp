@@ -3,6 +3,8 @@
 The idea is to use static documents for static pages, such as 
 articles, and then use file directories to visualize structure.
 
+[Download](https://github.com/paperphp/paperphp/raw/master/release/paperphp.zip)
+
 ## How it works
 
 Files are written with Markdown. Place them into the "pages" directory
@@ -17,19 +19,23 @@ will become instantly available at
 
     http://[sitenmame]/stuff/about-me
 
-## Meta Tags / Data
+## Metadata
 
 You can add any amount of structured data into the special "header" portion
 of your document. By default you can use it to give your resulting HTML document
 a `title` and `description`. 
+
+A header looks like this and is enclosed by `---` delimiters.
 
     ---
     title: My Content
     description: "This is a description"
     ---
 
-The data within wil be made available in the templates so you can use them as you 
-see fit. For example, you could add a `author` field and output this information 
+The data within wil be made available in the templates as variables so you can use them as you 
+see fit. 
+
+For example, you could add a `author` field and output this information 
 somewhere in your <head> section or maybe even load a custom vcard template, tailored
 for this particular author. 
 
@@ -45,7 +51,7 @@ Anything that is in the header section will be available via the `document` vari
     
 This brings us to...
     
-## Templates
+## Templating / Display
 
 I opted for [Twig](twig.sensiolabs.org/documentation) as engine for the templating system. 
 It features inheritance, macros, caching and has many useful filters and functions. 
@@ -88,14 +94,15 @@ you can use the `?url=` parameter to call documents. For example:
     index.php?url=/stuff/about-me 
 
 
-
 ### Troubleshooting
 
 - If you don't see anything, check if `cache` is writable. Also, check your server logs.
 - If you still don't get something, check if you installed/uploaded the required _composer_ packages. 
 - If you get redirect issues (error 500), try commenting out the RewriteBase statement in the `public/.htaccess`
 
-## Development`
+## Development / Contribute
+ 
+### Backend
 
 This package uses composer for managing vendor assets. 
 To load the required vendor libraries, run the `install` command once. 
@@ -107,7 +114,35 @@ To learn how to install the **composer** utility itself:
 
 https://getcomposer.org/download/
 
+### Frontend
+
+You will need NodeJS and the gulp package. 
+
+https://nodejs.org/en/download/
+
+Once you have Node (and the included npm tool) you can run the `install` command once.
+Everything else will be handled by the `gulp` command (or alternatively `npm run`):
+
+    $ cd [path to project]
+    $ npm install
+
+Whenever you edit or create new SCSS or JS files inside the `./frontend/` directory you only
+need to call the `gulp` command to rebuild all the files for you:
+
+    $ gulp
+        
+While working on files inside `./frontend/**` you can tell `gulp` to watch for file changes 
+and run automatically:
+
+    $ gulp watch
+
+If you don't have the gulp-cli package installed globally (some people do), you can use NPM instead,
+which will use the local version:
+   
+    $ npm run build
+    $ npm run watch
 
 ## License
 
 The MIT License (MIT)
+
