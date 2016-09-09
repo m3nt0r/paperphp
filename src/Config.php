@@ -10,7 +10,7 @@
 namespace PaperPHP\Paper;
 
 /**
- * PaperPHP Markdown Parser
+ * PaperPHP Config Reader
  *
  * @author Kjell Bublitz <kjbbtz@gmail.com>
  * @link https://github.com/paperphp/paperphp GitHub
