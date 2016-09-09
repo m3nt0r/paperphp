@@ -5,7 +5,7 @@
   },
   "templates": {
     "default": "document",
-    "directory": "/templates",
+    "directory": "/templates/paperphp",
     "cache": "/cache",
     "debug": true,
     "header": {
