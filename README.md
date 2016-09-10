@@ -101,10 +101,8 @@ you can use the `?url=` parameter to call documents. For example:
 - If you get redirect issues (error 500), try commenting out the RewriteBase statement in the `public/.htaccess`
 
 ## Development / Contribute
- 
-### Backend
 
-This package uses composer for managing vendor assets. 
+This package uses composer for managing PHP vendor assets. 
 To load the required vendor libraries, run the `install` command once. 
 
     $ cd [path to project]
@@ -114,33 +112,7 @@ To learn how to install the **composer** utility itself:
 
 https://getcomposer.org/download/
 
-### Frontend
-
-You will need NodeJS and the gulp package. 
-
-https://nodejs.org/en/download/
-
-Once you have Node (and the included npm tool) you can run the `install` command once.
-Everything else will be handled by the `gulp` command (or alternatively `npm run`):
-
-    $ cd [path to project]
-    $ npm install
-
-Whenever you edit or create new SCSS or JS files inside the `./frontend/` directory you only
-need to call the `gulp` command to rebuild all the files for you:
-
-    $ gulp
-        
-While working on files inside `./frontend/**` you can tell `gulp` to watch for file changes 
-and run automatically:
-
-    $ gulp watch
-
-If you don't have the gulp-cli package installed globally (some people do), you can use NPM instead,
-which will use the local version:
-   
-    $ npm run build
-    $ npm run watch
+For SASS/JS development see `./frontend/README.md`
 
 ## License
 
