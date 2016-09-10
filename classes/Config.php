@@ -24,12 +24,12 @@ class Config
 
     private static function load()
     {
-        $configFile = (file_exists(PAPERPHP_ROOT . '/config.json') ? '/config.json' : '/config.json.default');
-        if (!file_exists(PAPERPHP_ROOT . $configFile)) {
+        $configFile = (file_exists(PAPERPHP_ROOT . DS . 'config.json') ? 'config.json' : 'config.json.default');
+        if (!file_exists(PAPERPHP_ROOT . DS . $configFile)) {
             trigger_error('Both, "config.json" and "config.json.default" is missing. Please restore one from the original package.', E_USER_ERROR);
             exit; // we stop here as continuing would be futile anyway
         }
-        $configData = file_get_contents(PAPERPHP_ROOT . $configFile);
+        $configData = file_get_contents(PAPERPHP_ROOT . DS . $configFile);
         self::$data = json_decode($configData, true);
     }
 

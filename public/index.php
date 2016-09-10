@@ -8,6 +8,9 @@
  * @package paperphp
  */
 define('PAPERPHP_ROOT', dirname(__DIR__));
+define('DS', DIRECTORY_SEPARATOR);
+
+require PAPERPHP_ROOT . '/vendor/autoload.php';
 
 // check if we get the required url parameter (from rewrite)
 if (isset($_GET['url'])) {
@@ -26,8 +29,6 @@ if (isset($_GET['url']) && in_array($_GET['url'], ['robots.txt', 'favicon.ico'])
  * PaperPHP Main File
  *  Load Document from URL
  */
-require PAPERPHP_ROOT . '/vendor/autoload.php';
-
 $document = new \PaperPHP\Paper\Document($path);
 if ($document->parse())
 {

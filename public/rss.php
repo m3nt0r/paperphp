@@ -8,6 +8,8 @@
  * @package paperphp
  */
 define('PAPERPHP_ROOT', dirname(__DIR__));
+define('DS', DIRECTORY_SEPARATOR);
+
 require PAPERPHP_ROOT . '/vendor/autoload.php';
 
 use PaperPHP\Paper\Config;
