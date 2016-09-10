@@ -31,12 +31,15 @@ class Template
      */
     private static function instantiateTwig()
     {
-        $loader = new \Twig_Loader_Filesystem(PAPERPHP_ROOT . Config::get('templates.directory'));
+        $loader = new \Twig_Loader_Filesystem([
+            PAPERPHP_ROOT . DS . 'templates' . DS . Config::get('templates.directory'),
+            PAPERPHP_ROOT . DS . 'templates' . DS . 'paperphp'
+        ]);
         self::$twig = new \Twig_Environment($loader, [
             'charset' => Config::get('website.charset'),
             'auto_reload' => Config::get('templates.debug'),
             'debug' => Config::get('templates.debug'),
-            'cache' => PAPERPHP_ROOT . Config::get('templates.cache')
+            'cache' => PAPERPHP_ROOT . DS . Config::get('templates.cache')
         ]);
     }
 
@@ -56,5 +59,4 @@ class Template
 
         return self::$twig->render($templateName . '.twig', $data);
     }
-
 }
