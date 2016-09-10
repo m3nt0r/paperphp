@@ -9,10 +9,8 @@
  */
 namespace PaperPHP\Paper;
 
-use PaperPHP\Paper\Parser\FrontmatterParser;
-
 /**
- * PaperPHP Core Functions
+ * PaperPHP Core
  *
  * @author  Kjell Bublitz <kjbbtz@gmail.com>
  * @link    https://github.com/paperphp/paperphp GitHub
@@ -21,6 +19,12 @@ use PaperPHP\Paper\Parser\FrontmatterParser;
  */
 class Paper
 {
+
+    /**
+     * Returns false if the markdown directory doesn't have an "index.md"
+     *
+     * @return false|string
+     */
     public static function noIndexFile()
     {
         $markdownPath = Config::get('markdown.directory');
@@ -31,6 +35,11 @@ class Paper
         ));
     }
 
+    /**
+     * Returns an list of absolute filepaths to every markdown file
+     *
+     * @return array
+     */
     public static function getMarkdownFilepaths()
     {
         $markdownPath = Config::get('markdown.directory');
@@ -45,6 +54,13 @@ class Paper
         return $filepaths;
     }
 
+    /**
+     * Converts a filepath into a relative path, excluding the extension.
+     *
+     * @param string $filepath
+     *
+     * @return string Path that should be part of the URI
+     */
     public static function filepathToUri($filepath)
     {
         $markdownPath = Config::get('markdown.directory');
@@ -55,6 +71,13 @@ class Paper
         );
     }
 
+    /**
+     * Converts a URI into a filepath. It will either return the absolute path or false
+     *
+     * @param string $uri
+     *
+     * @return false|string
+     */
     public static function uriToFilepath($uri)
     {
         $markdownPath = Config::get('markdown.directory');
@@ -70,6 +93,11 @@ class Paper
         );
     }
 
+    /**
+     * Returns HOST_NAME with current HTTP scheme as string
+     *
+     * @return string http(s)://hostname
+     */
     public static function getBaseUrl()
     {
         $domain = $_SERVER['HTTP_HOST'];

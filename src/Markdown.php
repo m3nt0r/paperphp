@@ -11,7 +11,7 @@ namespace PaperPHP\Paper;
 use PaperPHP\Paper\Parser\FrontmatterParser;
 
 /**
- * PaperPHP Markdown Parser
+ * PaperPHP Markdown Tools
  *
  * @author Kjell Bublitz <kjbbtz@gmail.com>
  * @link https://github.com/paperphp/paperphp GitHub

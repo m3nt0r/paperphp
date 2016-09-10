@@ -12,12 +12,16 @@ use Symfony\Component\Yaml\Yaml;
 use PaperPHP\Paper\Config;
 
 /**
- * PaperPHP Markdown Parser
+ * PaperPHP Modified Frontmatter Parser
+ *
+ * - Having a "header" is not mandatory anymore
+ * - Merging default values and "config" values into "header"
  *
  * @author Kjell Bublitz <kjbbtz@gmail.com>
  * @link https://github.com/paperphp/paperphp GitHub
  * @license MIT
  * @package paperphp
+ * @subpackage parser
  */
 
 class FrontmatterParser extends \Devster\Frontmatter\Parser

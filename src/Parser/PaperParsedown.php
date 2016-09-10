@@ -26,6 +26,7 @@ namespace PaperPHP\Paper\Parser;
  * @link https://github.com/paperphp/paperphp GitHub
  * @license MIT
  * @package paperphp
+ * @subpackage parser
  */
 class PaperParsedown extends \ParsedownExtra
 {

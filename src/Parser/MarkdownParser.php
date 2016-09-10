@@ -18,6 +18,7 @@ namespace PaperPHP\Paper\Parser;
  * @link https://github.com/paperphp/paperphp GitHub
  * @license MIT
  * @package paperphp
+ * @subpackage parser
  */
 class MarkdownParser extends \Devster\Frontmatter\Parser\Parser
 {
