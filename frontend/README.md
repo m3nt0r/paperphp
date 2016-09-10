@@ -4,56 +4,37 @@ This directory contains the **source files** for the generated frontend files
 and the default markdown documents that are shown if the configured "pages/"
 folder is currently empty.
 
-## Generator
+## Setup
 
-I use [Grunt](http://gruntjs.com) for running the generators. You will need
-to have [node.js](http://nodejs.org) installed to install and run any of these.
+You will need NodeJS and the gulp package. 
 
-One you have **node.js**, and the **npm** utility that comes with it, you can 
-install the development packages required for this project like so:
+https://nodejs.org/en/download/
 
-```bash
-    $ cd [your paperphp install path]
+Once you have Node (and the included npm tool) you can run the `install` command once.
+Everything else will be handled by the `gulp` command (or alternatively `npm run`):
+
+    $ cd [path to project]
     $ npm install
-```
 
-Once that is done, run **grunt**. If that won't work you might not have it
-installed globally. You can use the local package through **npm** like so:
+## Workflow
+
+Whenever you edit or create new SCSS or JS files inside the `./frontend/` directory you only
+need to call the `gulp` command to rebuild all the files for you:
+
+    $ gulp
+        
+While working on files inside `./frontend/**` you can tell `gulp` to watch for file changes 
+and run automatically:
+
+    $ gulp watch
+
+## Alternative
+
+If you don't have the gulp-cli package installed globally (some people do), you can use NPM instead,
+which will use the local version:
    
-```bash
-    $ npm start
-```
-
-This will launch grunt in "watch"-mode. It will observe all frontend sources for 
-changes and rebuild the files as necessary. 
-
-Other npm commands are outlined below as an alternative to using the _grunt_ command directly.
-
-### /frontend/js/
-
-Javascript is generated via [browserify](http://browserify.org/)
-The entry point is `paperphp.js`
-
-    grunt browserify
-     
-    // alternative: npm run build-js
-
-The `vendor.js` however is just a concat of external libs that don't 
-need to be rebuild every time you update application file. Which files
-are included is configured in the Gruntfile.js. If those are changed,
-run the following command
-
-    grunt concat
-     
-    // alternative: npm run build-js
-
-### /frontend/less/
-
-Stylesheets are generated via [LESS.css](http://lesscss.org/)
-
-     grunt less
-     
-     // alternative: npm run build-css
+    $ npm run build
+    $ npm run watch
           
 ### /frontend/md/
 
