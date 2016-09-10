@@ -11,7 +11,7 @@ elixir.extend('release', function(name) {
     'pages/**',
     'public/.htaccess',
     'public/**',
-    'src/**',
+    'classes/**',
     'templates/**',
     'vendor/**',
     '.htaccess',

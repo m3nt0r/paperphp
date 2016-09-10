@@ -1,4 +1,11 @@
 {
+  "website": {
+    "name": "My Website",
+    "language": "en-US",
+    "charset": "utf-8",
+    "description": "",
+    "author": ""
+  },
   "markdown": {
     "extension": ".md",
     "directory": "/pages"
@@ -11,13 +18,6 @@
     "header": {
       "example": "default parameter"
     }
-  },
-  "website": {
-    "name": "My Website",
-    "language": "en-US",
-    "charset": "utf-8",
-    "description": "",
-    "author": ""
   },
   "rss": {
     "sortby": "modified",
