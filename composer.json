@@ -25,7 +25,7 @@
     }
   ],
   "autoload": {
-    "psr-4": { "PaperPHP\\Paper\\": "src/" }
+    "psr-4": { "PaperPHP\\Paper\\": "classes/" }
   },
   "require": {
     "php": ">=5.5.0",
